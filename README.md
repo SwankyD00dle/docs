@@ -18,3 +18,12 @@ npm run check
 `npm run check` validates each section's `docs.json` against its pages, every link between pages and its `#anchor`, the changelog's frontmatter and images, and every API example against the live API's [OpenAPI spec](https://platform.adapt.com/openapi.json). It runs on every pull request and once a day, so a change to the API that breaks an example is caught even when nobody touched the docs.
 
 [AGENTS.md](AGENTS.md) has the conventions pages follow, for people and coding agents alike.
+
+## License
+
+The docs are licensed in two parts:
+
+- Pages, changelog entries and images: [Creative Commons Attribution 4.0](LICENSE). Reuse them with credit to Adapt.
+- Code, in `scripts/` and in the examples on each page: [MIT](LICENSE-CODE).
+
+Neither license grants rights to the Adapt name or logo.
