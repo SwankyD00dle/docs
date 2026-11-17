@@ -220,7 +220,7 @@ adapt org invitations reject INVITATION_ID
 Alias: `sandboxes`. See [Sandboxes](/docs/sandboxes).
 
 ```sh
-adapt sandbox list [--limit N] [--cursor CURSOR] [--all]
+adapt sandbox list [--query TEXT] [--limit N] [--cursor CURSOR] [--all]
 adapt sandbox get SANDBOX_ID
 adapt sandbox create [OPTIONS]
 adapt sandbox sh [OPTIONS] [-- COMMAND...]
@@ -229,6 +229,9 @@ adapt sandbox stop SANDBOX_ID [--wait]
 adapt sandbox delete SANDBOX_ID
 adapt sandbox wait SANDBOX_ID [--status STATUS] [--wait-timeout SECONDS]
 ```
+
+`list --query TEXT` shows only sandboxes whose name contains TEXT, ignoring
+case, or whose ID starts with TEXT.
 
 `create` options:
 
@@ -354,7 +357,7 @@ adapt endpoints delete ENDPOINT_ID
 Alias: `image`. See [Images and private registries](/docs/images).
 
 ```sh
-adapt images list [--limit N] [--cursor CURSOR] [--all]
+adapt images list [--name NAME] [--status STATUS] [--limit N] [--cursor CURSOR] [--all]
 adapt images get IMAGE_ID
 adapt images import SOURCE --name NAME [--architecture amd64|arm64] [--credential REGISTRY_CREDENTIAL_ID] [--wait] [--idempotency-key KEY]
 adapt images pull IMAGE_ID [--credential REGISTRY_CREDENTIAL_ID | --public] [--wait] [--idempotency-key KEY]
@@ -362,6 +365,10 @@ adapt images wait IMAGE_ID [--wait-timeout SECONDS]
 adapt images delete IMAGE_ID
 ```
 
+- `list --name NAME`: only images named exactly NAME (case-sensitive), so every
+  version of one image.
+- `list --status STATUS`: only images in that state: `preparing`, `ready`,
+  `failed` or `deleting`. Combines with `--name`.
 - `import --architecture`: defaults to `amd64`.
 - `--credential`: pull with a private registry credential.
 - `pull --public`: pull without a registry credential.
