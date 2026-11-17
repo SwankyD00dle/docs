@@ -42,7 +42,8 @@ access. Omit `grants` on update to keep member access as it is.
 Each connection binding uses one of two account modes:
 
 - **Shared organization account** uses the account authorized on the organization
-  connection.
+  connection. The connection must be configured with a shared account;
+  services requiring individual sign-in cannot be attached this way.
 - **Each person's own account** requires each member to choose a personal
   connection under **Your accounts**. Create a **Just me** connection to the same
   server with the same authentication method in [Connections](/connections),

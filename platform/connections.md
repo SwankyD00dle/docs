@@ -11,25 +11,41 @@ agents. Private-network servers and redirects are not supported.
 Connections start as **Just me**. Owners and admins can instead choose
 **Organization** to make the connection's enabled tools available to members.
 Sharing does not give agents access automatically.
+
+For authenticated organization services, **Whose account to use** defaults to
+**Each person's own account**. An admin sets up the service and enables tools;
+each member connects their own account. Calls from that member and their agents
+use the member's permissions in the upstream service. An admin can instead
+choose **Shared organization account** when one account's access is intended
+for everyone who is allowed to use the connection. The visibility and account
+mode are chosen when the connection is created.
+
 **Configured** means the connection's settings are saved. Refresh its tools to
 check that the server is reachable.
 
-1. Open the connection and connect its account if needed.
-2. Select **Refresh tools**, choose which tools to enable, and save.
+1. Open the connection and connect your account if needed. For a shared
+   organization account, an admin connects it for everyone.
+2. Select **Refresh tools**. If you manage the connection, choose which tools
+   to enable and save. On services with individual accounts, members also
+   refresh their own tools after connecting. Available tools must be both
+   enabled by an admin and accessible through the member's account.
 3. Under **Agent access**, choose one of your connected agents or an eligible
    organization API key, select its tools, and save.
 
 Personal accounts can only be used by you and your approved agents. Organization
-API keys can only use organization connections. Clear a grant's tool selection
-to revoke it, or pause the connection to block new calls for everyone.
+API keys can only use shared organization accounts. Clear a grant's tool
+selection to revoke it, or pause the connection to block new calls for everyone.
+**Disconnect my account** removes only your individual account. Replacing its
+token or reconnecting requires refreshing its tools again. Leaving an organization
+removes your individual service accounts; rejoining requires connecting again.
 
 ## Call connected tools
 
 Agents use `search_connected_tools`, `describe_connected_tool`, and
 `call_connected_tool` through the same Platform MCP URL. Existing agents must
 reconnect to approve gateway access; existing API keys need the `gateway:use`
-permission. An agent's OAuth grant needs `platform:write` as well as its separate
-tool grant. New or changed tools need review before use.
+permission. An agent's OAuth grant needs `gateway:use` (or `platform:write`) as
+well as its separate tool grant. New or changed tools need review before use.
 If a connection changes while you are editing, reload it to review the current
 tools before saving.
 
