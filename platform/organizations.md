@@ -56,3 +56,56 @@ with your directory. SCIM also works with Google and GitHub sign-in.
 
 See [SSO and SCIM](/docs/identity) for setup, user mappings, sign-in expectations,
 and what happens to members and agent access when you deactivate someone.
+
+## Billing
+
+Billing belongs to the organization. In [Settings → Billing](/settings/billing),
+view credit balance availability, payment methods, purchase requests, payments,
+and usage statements. Owners and admins can update the payment method and buy
+credits. Members can read billing information.
+
+Sandbox usage consumes organization credits; model usage is not billed. There are
+no subscriptions or automatic credit purchases. Saving a card does not enable
+automatic collection of usage payments. Sandboxes continue running when credits
+run out.
+
+### Buy credits
+
+1. Choose **Update payment method** and follow the hosted setup link to save a
+   card and billing address.
+2. Enter an amount in USD and choose **Buy credits**. Purchases accept $0.50 to
+   $100,000, with up to two decimal places.
+3. Follow **Continue payment** if authentication or another payment action is
+   required. Keep the request until payment and credit availability are confirmed.
+
+The dashboard saves the request before sending it. Reloading checks that same
+request; it does not create another purchase. If submission was interrupted, use
+**Resume saved request**. It keeps the original request ID and amount. Use a
+current browser with browser storage and Web Locks support.
+
+**Pending** means the outcome is still being checked. **Needs review** means the
+request requires support review; do not make a replacement payment. After a
+confirmed failure, a new purchase requires another explicit action. Returning from
+a hosted page does not confirm payment. If a returned request is missing, select
+the organization where it started.
+
+### Read balances and documents
+
+An unavailable balance appears as **—**, never zero. Signed balances remain
+unavailable while credit and outstanding usage accounting are verified. The
+observation time describes when billing information was retrieved; provider
+updates can arrive later. Stale information retains the last observation and says
+that an update could not be confirmed.
+
+Payments show settlement outcomes, refunded amounts, and dispute flags. Statement
+and invoice state describes the document: finalization does not prove payment.
+Available receipt and document links open the provider's document. **Download**
+retrieves a statement PDF through the organization API when no hosted link is
+available. A completed
+purchase can appear before an updated balance or statement.
+
+Applications with `billing:read` can read `/v1/billing/overview`,
+`/v1/billing/history?offset=0`, and `/v1/billing/operations/{id}`. Starting setup or a
+purchase requires `billing:write` and a UUID `Idempotency-Key`. Reuse the original
+key and inputs after an uncertain response; a changed amount needs a new explicit
+purchase after the previous request is resolved.
