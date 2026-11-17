@@ -1,0 +1,44 @@
+---
+title: "Gate pull requests on Adapt's review"
+description: "Adapt's automated PR review now runs as a first-class GitHub check — make \"Adapt Review\" a required status check and it gates every merge."
+date: "2026-07-09"
+author:
+  name: Patrick Burris
+  github: Jumballaya
+---
+
+<Note>
+  Update: Adapt now reviews each PR automatically once, when it's opened or marked ready for review. New pushes no longer start a fresh review or check on their own. Re-run the review from the review footer or with an `@adaptcom review` comment. See [Re-run a review after new commits](/integrations/github#re-run-a-review-after-new-commits).
+</Note>
+
+Adapt is now a first-class check in GitHub. Every automated PR review runs as a check named **Adapt Review** on the PR's latest commit, so you can make it a required status check and block merges until Adapt signs off. Adapt also shows up in the **Reviewers** sidebar on every PR it reviews — a real reviewer, right in the GitHub UI.
+
+![The Adapt Review check running alongside CI checks like tests and lint on a pull request](https://adapt.com/docs/images/changelog/adapt-review-check-required.png)
+
+## How the check works
+
+When a PR is opened, marked ready for review, or receives a new push, Adapt starts an **Adapt Review** check run on the head commit and reviews the change. When the review posts, the check concludes:
+
+- **Pass** — confidence score of 3/5 or higher. The change looks safe to merge.
+- **Fail** — confidence score below 3/5. The check's summary carries the full review, so the reason is one click away.
+- **Neutral** — the review was skipped or didn't produce a verdict (for example, on a bot-authored PR). Neutral never blocks a merge.
+
+Every new push gets a fresh review and a fresh check, so the gate covers the exact commit you're merging — not a stale one. And if a review can't run or gets cancelled, Adapt concludes the check as neutral instead of leaving it hanging, so a required check never wedges a PR.
+
+## Make it required
+
+Gate merges on Adapt's review with a branch ruleset:
+
+1. In your repository, go to **Settings** > **Rules** > **Rulesets** and create a branch ruleset targeting your default branch.
+2. Enable **Require status checks to pass**.
+3. Click **Add checks** and select **Adapt Review**.
+
+From then on, the merge button stays disabled until Adapt's review completes and passes. Classic branch protection rules work the same way.
+
+## A reviewer in the sidebar
+
+Adapt's reviews now always post as real GitHub reviews — even when there are no inline comments — so Adapt appears in the **Reviewers** sidebar alongside your team. The review carries the confidence score, summary, important files changed, and inline findings, with a link back to the full session in Adapt.
+
+![adaptcom bot listed in the Reviewers sidebar of a pull request alongside human reviewers](https://adapt.com/docs/images/changelog/adapt-review-reviewer-sidebar.png)
+
+Automated reviews and the check run through the [GitHub integration](/integrations/github). If you connected GitHub before automated reviews shipped, reconnect so Adapt picks up pull request events.

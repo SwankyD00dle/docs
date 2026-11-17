@@ -1,0 +1,52 @@
+---
+title: "Company Knowledge"
+description: "Teach Adapt the facts, definitions, and procedures that are unique to your organization — once."
+date: "2026-01-12"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Adapt now has a persistent knowledge base for your organization. Tell it something once — how you define ARR, where a particular dataset lives, who owns on-call, the steps to run a release — and Adapt remembers it for every future conversation, for everyone in your organization.
+
+## Why it exists
+
+Adapt is good at reasoning over your connected tools, but every company has institutional context that doesn't live in any of them. Metric definitions, naming conventions, who to ask about what, the half-undocumented workflow that everyone follows. Without that context, Adapt has to guess — or ask you to re-explain it every time.
+
+Company Knowledge is where that context lives. Adapt reads from it automatically when a query is relevant, and writes to it when you teach it something worth keeping.
+
+## How it works
+
+Knowledge entries are short, standalone facts paired with a **retrieval trigger** — a description of when that fact is needed. Adapt embeds both, and pulls matching entries into context when the trigger fits the question being asked.
+
+```
+Trigger: When asked about ARR or revenue definitions
+Content: ARR is annualized from MRR, excluding churned and paused
+         accounts. Don't include one-time charges or trials.
+```
+
+Ask Adapt a revenue question and that entry shows up automatically — no `@`s, no manual lookups.
+
+## Adding knowledge
+
+Three ways to add an entry:
+
+- **Just tell Adapt.** "Remember that our fiscal year starts in February" or "Whenever someone asks about deploys, the runbook is in Notion at /eng/deploys." Adapt writes the entry for you and confirms the trigger.
+- **From the chat.** Promote a useful answer Adapt just gave into a permanent knowledge entry.
+- **From settings.** Manage entries directly at **Settings > Knowledge** — edit triggers, update content, or delete what's gone stale.
+
+## What to put in it
+
+The best entries are the things you find yourself re-explaining:
+
+- **Metric definitions** — ARR, NRR, qualified leads, anything where "it depends" matters
+- **Data locations** — which warehouse table, which folder, which dashboard is the source of truth
+- **People and ownership** — who owns a system, who to escalate to, how on-call works
+- **Procedures** — release steps, incident response, expense workflows
+- **Conventions** — naming, formatting, terminology specific to your business
+
+## Shared by default, edited by anyone
+
+Knowledge is scoped to your organization. Anyone on the team benefits from what anyone else teaches Adapt, and anyone can edit or remove an entry that's wrong or out of date. Adapt cites the entry when it uses one, so you can always trace an answer back to the source.
+
+See [Knowledge Base](/getting-started/core-concepts#knowledge-base) in the docs for more.

@@ -1,0 +1,27 @@
+---
+title: "Scheduled task runs now live on their own page"
+description: "Every run of a scheduled task gets a dedicated history view, and the chats those runs create no longer clutter your sidebar."
+date: "2026-05-27"
+author:
+  name: Patrick Burris
+  github: Jumballaya
+---
+
+Scheduled tasks used to drop a new chat into your sidebar every time they fired. A task running every 15 minutes meant ~100 sidebar entries a day, drowning out the conversations you were actually working on.
+
+Each run is still a real chat — Adapt still does its work in an isolated chat with full integration access and saved history. We just stopped putting them in your sidebar. Now you find them where they belong: on the task itself.
+
+![Scheduled task detail page showing a list of past runs with start time and title, plus a Details panel with status, visibility, schedule, and created-by metadata](https://adapt.com/docs/images/changelog/scheduled-task-run-history.png)
+
+## What changed
+
+- Your sidebar no longer lists the per-run chats created by scheduled tasks. Only chats you started directly appear there, with the exception of scheduled tasks that occurred before May 27, 2026. 
+- The old slide-out panel on the Scheduled Tasks page is gone. Clicking a task now opens a full page for it.
+- That page shows the task's full **Run history** — every execution, with start time, title, and a one-click link into the chat for that run.
+- A **Details** panel on the same page surfaces status, visibility, schedule, and creator metadata, with **Edit task** and **Delete task** controls in the header.
+
+## Finding a past run
+
+Go to **Scheduled tasks** in the left nav, click any task, and scan the run history. Open any row to jump into the chat Adapt produced for that run — exactly as before, with the full transcript, sources, and any artifacts it generated.
+
+Shared task runs are visible to everyone in your org. Private task runs are only visible to the person who created the task.

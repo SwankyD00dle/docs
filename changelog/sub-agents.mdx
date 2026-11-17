@@ -1,0 +1,49 @@
+---
+title: "Sub-agents"
+description: "Adapt now breaks complex requests into parallel workstreams handled by specialized agents."
+date: "2026-04-19"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Some questions can't be answered with a single query. They require pulling data from multiple sources, running analyses in parallel, synthesizing conflicting signals, and presenting a unified answer. Sub-agents make this possible.
+
+## How it works
+
+When Adapt receives a complex request, it decomposes it into discrete sub-tasks and delegates each to a specialized agent. These agents work in parallel, and their results are synthesized into a single coherent response.
+
+You ask one question. Adapt orchestrates everything behind the scenes.
+
+**Example:**
+
+```
+Give me a full picture of why churn spiked in March.
+Pull usage data, support tickets, and any relevant Slack discussions.
+```
+
+Adapt might spawn three sub-agents simultaneously:
+- One querying your analytics platform for usage drop-off patterns
+- One searching support tickets for themes during that period
+- One scanning Slack for customer mentions and internal discussions
+
+Results come back together, cross-referenced and synthesized.
+
+## Why this matters
+
+Previously, multi-source analyses required you to run several separate queries and manually connect the dots. Sub-agents collapse that into a single interaction. You get a complete answer without having to orchestrate the research yourself.
+
+This is particularly useful for:
+
+- **Root cause investigations** across product, support, and usage data
+- **Competitive research** pulling from web, CRM, and internal notes simultaneously
+- **Executive briefings** that need context from engineering, finance, and sales data in one place
+- **Incident retrospectives** correlating events across multiple systems
+
+## Transparency
+
+Adapt shows you what each sub-agent was tasked with and what it found. You can expand any sub-agent's work to see the raw query, the sources it used, and its intermediate conclusions before the final synthesis. Nothing is hidden.
+
+## Limits
+
+Sub-agent tasks run within your existing integration permissions. An agent won't access a data source you haven't connected, and it won't take actions you haven't enabled. The same authorization model applies whether the request comes directly from you or from an orchestrating agent.

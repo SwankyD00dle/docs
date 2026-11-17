@@ -1,0 +1,32 @@
+---
+title: "FUSE mounts in the sandbox"
+description: "Adapt can now mount filesystems inside its sandbox, turning cloud storage buckets and other sources into local folders."
+date: "2026-07-06"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Every Adapt conversation runs in its own sandbox: a real machine with root access where Adapt writes and runs code. That sandbox now supports FUSE (Filesystem in Userspace), so Adapt can mount external filesystems and work with them as if they were local files.
+
+## What this unlocks
+
+FUSE lets a program present almost anything as a filesystem. With it enabled in the sandbox, Adapt can mount sources like:
+
+- **Cloud storage buckets** — mount a Google Cloud Storage bucket with Cloud Storage FUSE (`gcsfuse`) or an S3 bucket with `mount-s3`, then read and write objects like ordinary files.
+- **Remote machines** — mount a directory over SSH with `sshfs`.
+- **Dozens of cloud backends** — mount anything `rclone` supports.
+
+Instead of writing custom download-process-reupload code for each object store, Adapt can `ls`, `cat`, `grep`, and stream files straight from the source.
+
+## Example
+
+```
+Mount our exports bucket and summarize the newest CSV in it.
+```
+
+Adapt installs `gcsfuse` in its sandbox, mounts the bucket as a folder, finds the newest file, and reads it directly. No manual downloads.
+
+## Why it matters
+
+This extends the core idea behind Adapt's sandbox: give the agent a real computer and let it use real tools. Mounting a filesystem is something an engineer would do, so now Adapt can too, pulling large datasets, cloud storage, and remote files into one working directory without custom plumbing.

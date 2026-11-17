@@ -1,0 +1,85 @@
+{
+  "groups": ["Start here", "Concepts", "Reference"],
+  "pages": [
+    {
+      "slug": "get-started",
+      "label": "Get started",
+      "group": "Start here"
+    },
+    {
+      "slug": "use-the-api",
+      "label": "Use the API",
+      "group": "Start here"
+    },
+    {
+      "slug": "cli",
+      "label": "CLI reference",
+      "group": "Start here"
+    },
+    {
+      "slug": "sandboxes",
+      "label": "Sandboxes",
+      "group": "Concepts"
+    },
+    {
+      "slug": "commands",
+      "label": "Commands",
+      "group": "Concepts"
+    },
+    {
+      "slug": "models",
+      "label": "Model providers",
+      "group": "Concepts"
+    },
+    {
+      "slug": "files",
+      "label": "Files",
+      "group": "Concepts"
+    },
+    {
+      "slug": "images",
+      "label": "Images and registries",
+      "group": "Concepts"
+    },
+    {
+      "slug": "volumes",
+      "label": "Volumes",
+      "group": "Concepts"
+    },
+    {
+      "slug": "secrets",
+      "label": "Secrets",
+      "group": "Concepts"
+    },
+    {
+      "slug": "endpoints",
+      "label": "Endpoints",
+      "group": "Concepts"
+    },
+    {
+      "slug": "connections",
+      "label": "Connections",
+      "group": "Concepts"
+    },
+    {
+      "slug": "identity",
+      "label": "SSO and SCIM",
+      "group": "Reference"
+    },
+    {
+      "slug": "identities",
+      "label": "Identities",
+      "group": "Concepts"
+    },
+    {
+      "slug": "organizations",
+      "label": "Organizations and access",
+      "group": "Reference"
+    },
+    {
+      "slug": "api-reference",
+      "label": "API reference",
+      "group": "Reference"
+    }
+  ]
+}

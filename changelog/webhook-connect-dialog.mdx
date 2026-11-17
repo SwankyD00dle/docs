@@ -1,0 +1,25 @@
+---
+title: "Connect a webhook in one click"
+description: "Webhook credentials now live in a dedicated Connect dialog with URL secret and Basic auth modes, and secrets stay masked until you copy them."
+date: "2026-08-07"
+author:
+  name: Bruno Quaresma
+  github: BrunoQuaresma
+---
+
+Wiring an external service to an Adapt webhook used to mean piecing together the URL, the username, and the password from the webhook's detail page. Every webhook now has a **Connect** button that opens a dialog with the exact credential the sending service expects, ready to copy.
+
+## Two ways to connect
+
+- **URL secret** — a single ready-to-paste URL with the secret already in the query string. Use it for services that only let you enter a URL, like Grain, Resend, or Typefully.
+- **Basic auth** — the connection URL, username, and password as separate fields. Use it for callers you control, such as curl, scripts, or internal tooling that can set an `Authorization` header.
+
+## Secrets stay masked
+
+The dialog shows a masked secret by default. Adapt fetches the plaintext only when you copy it, or when you reveal it with the eye toggle on the Basic auth tab, and drops it again as soon as you hide the field or close the dialog.
+
+Lost the secret, or wiring up a new service? **Regenerate secret** issues a new one. The old secret stops working immediately, so update anything already pointed at the webhook.
+
+Webhooks created before Adapt began storing a retrievable copy of the secret show "Secret is no longer readable" — regenerate to get a working one.
+
+[Learn more about event-based automations →](/features/automations#event-based-automations)

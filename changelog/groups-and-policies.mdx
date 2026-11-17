@@ -1,0 +1,37 @@
+---
+title: "Groups and Policies"
+description: "Mirror your team structure in Adapt with groups, and control who can use each integration with natural-language access policies."
+date: "2026-07-17"
+author:
+  name: Patrick Burris
+  github: Jumballaya
+---
+
+Two features that make Adapt fit how your organization is actually structured: **groups** let you model your teams inside Adapt, and **policies** let you write granular, per-integration access rules in plain English.
+
+## Groups
+
+Create a group for any team — Engineering, Finance, Marketing — give it a name and an icon, and assign an owner. Groups become the building block for sharing and access: share an integration connection with a group and only its members can use it, or reference a group by name when you write an access policy.
+
+![Create a group modal in Adapt settings, showing name, icon picker, and owner fields](https://adapt.com/docs/images/changelog/groups-and-policies-create-group.png)
+
+Manage groups under **Settings** > **Groups**. Org owners and admins are always group admins. Groups can also be synced automatically from your identity provider so membership stays in step with your directory.
+
+## Policies
+
+Policies are natural-language access rules for a connected integration. Instead of wrestling with a permissions matrix, you tell Adapt what you want in chat:
+
+```
+Only members of the Engineering group can write to our GitHub repos;
+everyone else has read-only access.
+```
+
+Adapt resolves the people and groups you named, restates the rule faithfully, and shows a confirmation card. Click **Save** and the rule takes effect.
+
+![GitHub integration page with the Policies tab open, showing a rule that only Engineering group members can write to repos while everyone else has read-only access](https://adapt.com/docs/images/changelog/groups-and-policies-github.png)
+
+Rules are scoped per provider, so one rule set covers every connection of that integration. They can target specific resources and operations — repositories, branches, Slack channels, database datasets, tables, even individual columns — and Adapt enforces them at runtime on every agent action, applying the most specific matching rule.
+
+View, edit, and remove rules under the **Policies** tab on any integration's page in **Settings** > **Integrations**, or just ask Adapt in chat. Only org owners and admins can author policies.
+
+[Learn more about access controls →](/security/access-controls)

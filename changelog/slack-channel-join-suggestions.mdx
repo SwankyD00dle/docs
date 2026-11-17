@@ -1,0 +1,33 @@
+---
+title: "Suggested trigger rules when Adapt joins a channel"
+description: "Adapt now reads a new channel and offers one-tap rules for when it should respond proactively."
+date: "2026-07-28"
+author:
+  name: Ryan Miyahara
+  github: SwankyD00dle
+---
+
+Invite Adapt to a Slack channel and it reads what the channel is for, then posts up to three concrete ways it could help — each with an **Enable** button. Tap one and Adapt starts responding proactively there, no policy to write yourself.
+
+![Adapt's welcome message in #ryans-production-bugs suggesting two proactive rules, each with an Enable button: triage and deduplicate new bug reports, and post a daily digest of open unresolved bugs](https://adapt.com/docs/images/changelog/slack-channel-join-suggestions.png)
+
+## How it works
+
+On joining, Adapt looks at the channel name, topic, purpose, recent messages, who is active in the channel, and the tools your organization has connected. It then proposes trigger rules grounded in the traffic it actually sees — filing bug reports into Linear, drafting support replies, posting a digest of what is still open.
+
+Each suggestion is a [trigger mode](/platform/slack-app#proactive-responses): usually **Smart** with a specific policy, or **Always respond** for channels where every message needs handling.
+
+- Anyone in the channel can tap **Enable**.
+- Enabling more than one adds to the channel's rules rather than replacing them, and Adapt acts on all of them.
+- **No thanks** leaves the channel on `@-mention only`, the default.
+- Suggestions stay actionable for seven days.
+
+## When Adapt stays quiet
+
+Adapt posts nothing when it can't see a clear way to help — a purely social channel, or one with too little history to read. It also skips channels that already have a trigger mode set, so an existing configuration is never overwritten, and skips externally shared Slack Connect channels.
+
+## Changing your mind
+
+Ask Adapt in the channel any time: adjust a policy, add a rule, or go back to `@-mention only`. Removing Adapt from the channel clears its rules entirely.
+
+[Learn more about proactive responses →](/platform/slack-app#proactive-responses)

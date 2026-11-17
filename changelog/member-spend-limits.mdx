@@ -1,0 +1,32 @@
+---
+title: "Set member spend limits"
+description: "Organizations on a subscription can now set a per-member monthly credit limit, with warning emails at 75% and 90% and a pause at 100%."
+date: "2026-08-14"
+author:
+  name: Bruno Quaresma
+  github: BrunoQuaresma
+---
+
+One person running a heavy automation shouldn't be able to spend a month of credits in an afternoon. Organizations on an active subscription can now cap how many credits each member spends per billing cycle, so costs stay predictable without anyone policing usage by hand.
+
+## Set the limit
+
+Owners and admins set it in **Settings** > **Billing** > **Member spend limit**. Enter a credit limit, save, and it applies to every member in the organization for the current billing cycle. Clear the field to remove the cap.
+
+The limit resets when your billing cycle rolls over. Annual plans get a fresh window on each monthly anniversary rather than one lump allowance for the year.
+
+## Warnings before the wall
+
+Adapt emails each member as they approach their cap:
+
+- **75%** — a heads-up, no action needed
+- **90%** — close to the cap, with a note that messages pause at 100%
+- **100%** — the limit is reached and new messages are paused
+
+Admins get admin-specific wording telling them they can raise the limit themselves. Each email fires once per billing cycle, and all three re-arm when the cycle rolls over or an admin changes the limit.
+
+## What members see
+
+A member at their cap sees a banner in chat explaining that new messages are paused until the limit resets or an admin raises it, and their own credits card shows how much of the monthly limit is left and when it resets. On the usage page, admins see spend against the limit for every member, with a **Blocked** badge on anyone at the cap.
+
+[Usage-based pricing](/pricing/usage-based-pricing) · [Billing FAQ](/pricing/billing-faq)

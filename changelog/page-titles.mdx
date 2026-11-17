@@ -1,0 +1,36 @@
+---
+title: "Every page names itself in the browser tab"
+description: "Adapt renames the browser tab to match the chat or page you're on, so a row of open Adapt tabs is scannable at a glance."
+date: "2026-07-28"
+author:
+  name: Dustin Schau
+  github: DSchau
+---
+
+A row of Adapt tabs used to read the same thing on every one of them. Now each tab names what's actually in it: the chat you're in, the app you're viewing, the automation you're editing, the settings page you're on. Keep as many tabs open as you want and find the right one without clicking through them.
+
+![A browser tab list showing five Adapt tabs, each named for its own page: "Update author GitHub handle | Adapt", "Adapt page load error in automations | Adapt", "Adapt Social Tracker | Apps | Adapt", "Cal.com demo booking to HubSpot PT time | We...", and "Members | Settings | Adapt"](https://adapt.com/docs/images/changelog/page-titles.png)
+
+## What the titles look like
+
+Titles run most specific first, then the section, then Adapt:
+
+| Page | Tab title |
+|---|---|
+| A chat | `Q3 pipeline review \| Adapt` |
+| An app | `AcmeCorp Dashboard \| Apps \| Adapt` |
+| An automation | `Daily digest \| Automations \| Adapt` |
+| A webhook | `Deploy hook \| Webhooks \| Adapt` |
+| An integration | `Slack \| Integrations \| Adapt` |
+| A group | `Design \| Groups \| Adapt` |
+| A settings section | `Members \| Settings \| Adapt` |
+
+Chats deliberately skip the section segment. When you're scanning a tab strip, the chat name is the part that identifies the tab, so it gets all the room.
+
+## How it works
+
+The tab title updates live. When Adapt auto-titles a chat mid-run, or you rename one, the tab follows immediately. Pages that are still loading show their section name rather than flashing a generic default, and long names are truncated so a single runaway title can't swamp the tab strip.
+
+Titles also carry into bookmarks, browser history, and window switchers, so a saved Adapt link says what it points at.
+
+[Learn more about the web app →](/platform/web-app)

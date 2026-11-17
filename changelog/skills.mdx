@@ -1,0 +1,82 @@
+---
+title: "Skills"
+description: "Teach Adapt how your organization works with modular, version-controlled knowledge packages."
+date: "2026-04-16"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+Skills let you encode your organization's domain knowledge, workflows, and standards into Adapt. Once a skill is set up, Adapt applies it automatically when relevant — without you having to re-explain context every time.
+
+## The problem skills solve
+
+Adapt is a capable generalist. But your organization has specific ways of doing things: particular metrics that matter, report formats your team expects, terminology that's unique to your business, workflows that follow internal standards.
+
+Without skills, you end up repeating yourself. Every query needs to re-establish context:
+
+```
+When I say "ARR," I mean annualized from MRR. Exclude churned accounts.
+Format the output as a table with columns for segment, count, and value.
+Always compare to the same period last year.
+```
+
+Skills replace that repetition. Write it once, and Adapt applies it every time.
+
+## How skills work
+
+A skill is a Markdown file that Adapt loads when handling a relevant request. It can contain anything: definitions, templates, step-by-step workflows, formatting rules, examples, best practices.
+
+```markdown
+---
+name: revenue-reporting
+description: Standards for revenue metrics and report formatting
+---
+
+# Revenue reporting standards
+
+## Metric definitions
+
+**ARR** — Annualized from MRR. Exclude churned accounts.
+**MRR** — Sum of monthly recurring revenue from active subscriptions only.
+**NRR** — Net revenue retention, calculated as (starting MRR + expansion - contraction - churn) / starting MRR.
+
+## Report format
+
+All revenue reports should include:
+- Period covered (always compare to same period prior year)
+- Segment breakdown (SMB / Mid-Market / Enterprise)
+- Movement table: new, expansion, contraction, churn
+
+...
+```
+
+Adapt detects relevance automatically. When you ask a question about revenue, the `revenue-reporting` skill loads and Adapt's response follows its standards — correct metric definitions, the right format, the expected comparisons.
+
+## Skills are version-controlled
+
+Skills sync from a GitHub repository. Your team maintains them like code: propose changes via PR, review and approve, merge to main. Adapt pulls the latest version on sync.
+
+This means skills stay current as your processes evolve, and changes are tracked with full history. No undocumented institutional knowledge locked in someone's head.
+
+## Setting up skills
+
+1. Create a GitHub repository for your skills (or add to an existing one)
+2. For each skill, create a directory with a `SKILL.md` file inside
+3. In Adapt, go to **Settings** > **Skills** > **Add skill source**
+4. Connect the repository, set the branch and path, and click **Create**
+
+Adapt scans the repository and imports each skill it finds. Enable or disable individual skills from the same settings page.
+
+## Ideas to get started
+
+Skills work for any reusable context your team reaches for repeatedly:
+
+- **Metric definitions** — Prevent ambiguity around how key numbers are calculated
+- **Report templates** — Standardize outputs across teams and audiences
+- **Onboarding guides** — Surface the right context for new team members automatically
+- **Code and data standards** — Enforce conventions without repeating them in every prompt
+- **Brand voice** — Keep external communications consistent
+- **Runbooks** — Operational procedures that Adapt can reference mid-task
+
+See [Skills](/features/skills) in the docs for the full reference, including the complete skill file format.

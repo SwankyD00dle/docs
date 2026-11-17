@@ -1,0 +1,36 @@
+---
+title: "MCP server is now in beta"
+description: "Adapt's MCP server graduates from early access with OAuth sign-in, so connecting your editor or terminal takes one command."
+date: "2026-08-07"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+The [MCP server](/platform/mcp-server) is out of early access and into beta. The change that got it there: authentication is now standard OAuth, so there's no session token to dig out of your browser's cookie jar and no expiry to babysit. Add the server, approve the browser prompt, and your client handles credentials from there.
+
+## What's new in beta
+
+- **Sign in through your browser.** MCP-capable clients discover Adapt's authorization server automatically and run the OAuth flow themselves.
+- **Credentials that maintain themselves.** Access tokens are short-lived (5 minutes) and your client refreshes them silently. Your session stays valid until 30 days of inactivity.
+- **No org header.** Your organization comes from the token, so `X-Adapt-Org` is no longer needed.
+- **Long jobs survive your client's timeout.** Requests that run past 45 seconds return a `chat_id` and `status: working` instead of holding the connection open. Your client polls that `chat_id` until the run finishes, so a five-minute research task no longer trips the 60-second tool timeout most MCP clients ship with.
+
+Connecting is now a single command:
+
+```bash
+claude mcp add --transport http adapt https://app.adapt.com/mcp
+```
+
+## Reconnect existing clients
+
+Alpha used your Adapt session token as a Bearer credential. That's no longer accepted. If you connected during early access, remove the server and add it again without the `Authorization` header:
+
+```bash
+claude mcp remove adapt
+claude mcp add --transport http adapt https://app.adapt.com/mcp
+```
+
+Codex users should drop the `http_headers` line from the `[mcp_servers.adapt]` block in `~/.codex/config.toml` and run `codex mcp login adapt`.
+
+The endpoint and the `ask_adapt` tool are unchanged. See [MCP server](/platform/mcp-server) for full setup.

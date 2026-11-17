@@ -1,0 +1,24 @@
+---
+title: "Connection health alerts for integrations"
+description: "Adapt now flags integrations that stop working and shows you exactly which connections to reconnect."
+date: "2026-07-06"
+author:
+  name: Bruno Quaresma
+  github: BrunoQuaresma
+---
+
+When a monitored integration stops working — an expired token, a revoked grant, or a failed token refresh — Adapt now tells you instead of failing silently. Broken connections are surfaced right where you manage them, so you can fix them before they interrupt a workflow.
+
+## What changed
+
+- **Banner** — A notice at the top of **Settings → Integrations** counts how many connections need attention, with a **Review** button that filters straight to them.
+- **Status dot** — Each integration tile shows an amber dot with a **Needs re-auth** label when one of its connections has a problem. Healthy connections keep their green dot.
+- **Needs attention filter** — A new sidebar filter groups every connection that needs reconnecting in one place.
+
+## How to fix a flagged connection
+
+Open the flagged integration and reconnect it. Once you re-authorize, Adapt clears the error and the connection returns to healthy automatically.
+
+This covers monitored OAuth integrations, including Slack, Linear, HubSpot, Reddit Ads, LinkedIn, Google Ads, Google Analytics, and Google Search Console.
+
+See the [Integrations overview](/integrations/overview) for more on managing connections.

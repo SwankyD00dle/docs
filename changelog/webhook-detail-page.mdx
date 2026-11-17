@@ -1,0 +1,28 @@
+---
+title: "Webhooks now have their own detail page"
+description: "Click any webhook to see its full event history and configuration on a dedicated page, with inline enable, edit, and delete."
+date: "2026-07-17"
+author:
+  name: Bruno Quaresma
+  github: BrunoQuaresma
+---
+
+Webhooks let external services send data to your agent. Until now, all you could see was the webhook in a list. Click any webhook in **Settings** > **Webhooks** and you land on a dedicated page for it, with its event history on the left and its configuration on the right.
+
+This is the first step toward bringing webhooks to parity with [Automations](/features/automations). More is coming.
+
+## What's on the page
+
+- **Event history** — every request the webhook has received, newest first, each with its status and timestamp. The list pages in as you scroll, so long histories load smoothly.
+- **Details** — the webhook's configuration at a glance:
+  - **Status** — flip the webhook between **Enabled** and **Disabled** inline, without opening a modal.
+  - **Visibility** — webhooks are shared with everyone in your organization.
+  - **Webhook URL** and **Username** — one-click copy for wiring up the sending service.
+  - **Rate limit** — how many requests the webhook accepts per window.
+  - **Prompt template** — the instructions Adapt runs on each payload, if one is set.
+  - **Created** and **Last used** timestamps.
+- **Edit** and **Delete** controls in the page header.
+
+## Finding it
+
+Go to **Settings** > **Webhooks** in the web app and click any webhook to open its page.

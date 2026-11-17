@@ -1,0 +1,50 @@
+---
+title: "MCP server (early access)"
+description: "Connect Adapt to your own agents and tools through a hosted Model Context Protocol endpoint."
+date: "2026-06-09"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+> **Superseded.** The MCP server is now in beta and authenticates with OAuth. The session-token setup below no longer works and returns `401`. See [MCP server is now in beta](/changelog/mcp-server-beta) for what changed and how to reconnect, or [MCP server](/platform/mcp-server) for current setup.
+
+Adapt is now reachable from your editor and terminal in addition to Slack and our web app! A hosted [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server lets external agents and tools run a full Adapt agent in your organization, with all of your knowledge, integrations, and skills powering it.
+
+## What you can do
+
+Ask with `@adapt` from any connected client and put it to work alongside what you're already doing:
+
+**Use your integrations**
+
+```
+@adapt close out ENG-1234 now that the fix is merged and deployed
+```
+
+**Draw on company knowledge**
+
+```
+@adapt re-read the engineering style guide in company knowledge and apply it to the changes on this branch
+```
+
+**Use apps and the sandbox**
+
+```
+@adapt spin up a minimal app that demos this code so I can share it with my team
+```
+
+**Load up Claude or Codex with full context from an Adapt chat**
+
+```
+hey claude, start working through this Adapt chat using the MCP, I was talking with the team and Adapt in Slack and ended up with a great idea to build out.
+```
+
+## Connecting
+
+*Early access authenticated with an Adapt session token passed as a Bearer header. That is no longer accepted — the current setup is a browser OAuth sign-in with no token to copy:*
+
+```bash
+claude mcp add --transport http adapt https://app.adapt.com/mcp
+```
+
+See [MCP server](/platform/mcp-server) for the full setup across Claude Code, Codex, Cursor, VS Code, and other clients.

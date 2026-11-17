@@ -1,0 +1,24 @@
+---
+title: "Doppler"
+description: "Connect Doppler to Adapt to read secrets from your projects and configs."
+date: "2026-07-31"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Doppler is now in the integrations catalog. Connect it with a service account API token and Adapt can read the secrets in the projects and configs you grant it, then use those credentials to work with the services behind them.
+
+## How it works
+
+**Connect with a token.** Create a service account in Doppler under **Team > Service Accounts**, grant it **Viewer** access to only the projects and configs Adapt needs, and create a non-expiring API token. Paste it into the **Service account token** field at **Settings > Integrations > Doppler**.
+
+**Scoped by design.** Adapt sees exactly what the service account sees. Anything you leave out of the project access list stays invisible to the token.
+
+**Ask away.** Once connected, ask things like "List my Doppler projects and their configs", "Which secrets are set in the staging config of the adapt project?", or "Compare the secret names in dev and staging and tell me what is missing."
+
+You could already do this before today by adding your Doppler token as a custom integration. The catalog entry just makes it a first-class, one-click connection with the token field named, documented, and consistent across your org.
+
+Service accounts require Doppler's Team or Enterprise plan. On other plans, use a read-only service token scoped to a single project and config.
+
+See the [Doppler integration docs](https://adapt.com/docs/integrations/doppler) for setup details.

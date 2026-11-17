@@ -1,0 +1,47 @@
+---
+title: "Image generation"
+description: "Adapt can now create and edit images inline, right in the chat."
+date: "2026-04-25"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+Adapt can now generate images from a prompt and edit images you upload, all without leaving the chat.
+
+## Generate from a prompt
+
+Ask Adapt for an image and it will produce one using a flagship image model. Adapt continually upgrades the underlying model as the space evolves, so you always get state-of-the-art quality without changing how you work:
+
+```
+Generate a 16:9 hero image of a misty redwood forest at dawn,
+cinematic lighting, photorealistic.
+```
+
+You can specify aspect ratio, style, subject, lighting, and composition. The result is stored as an artifact and rendered directly in the conversation.
+
+## Edit and transform uploaded images
+
+Upload one or more images and tell Adapt what to change:
+
+```
+Take this product photo and put it on a clean white background,
+add a soft drop shadow, square crop.
+```
+
+```
+Combine these two screenshots into a single side-by-side comparison.
+```
+
+Adapt can restyle, recompose, composite, or transform any image you provide. Edits inherit the source aspect ratio.
+
+## Billing
+
+Image generation is billed in credits, the same way as everything else in Adapt. Usage shows up in your billing dashboard alongside other tool calls.
+
+## Try it
+
+```
+Make me a 1:1 logo concept for a coffee shop called "Northbound" —
+minimalist, hand-drawn, earthy palette.
+```

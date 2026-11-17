@@ -1,0 +1,14 @@
+{
+  "name": "adapt-docs",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "check": "node scripts/check.ts",
+    "preview": "python3 -m http.server 4500"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

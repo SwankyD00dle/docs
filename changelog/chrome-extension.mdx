@@ -1,0 +1,45 @@
+---
+title: "Adapt Chrome extension"
+description: "Adapt now lives in a browser side panel that reads the page you're on, so you can ask, summarize, and draft without leaving the tab."
+date: "2026-06-29"
+author:
+  name: Bruno Quaresma
+---
+
+Adapt is now a Chrome extension. Pin it once and Adapt rides along in a side panel on every tab, already aware of the page in front of you. Ask a question, summarize a long thread, or rewrite a draft without copy-pasting into another tab. [Install it from the Chrome Web Store](https://chromewebstore.google.com/detail/adapt/lpaboiblljakjkhbhadlabiggcfbbgam).
+
+![Adapt extension open in the Chrome side panel alongside a web page](https://adapt.com/docs/images/changelog/chrome-extension.png)
+
+## How it works
+
+The extension is a chat that docks beside any `http` or `https` page. It reads the page you're viewing with [Mozilla Readability](https://github.com/mozilla/readability) — pulling the main readable content plus the page title and URL — and sends that along as context for your question. Page content is only re-sent when the page actually changes, so follow-up questions stay fast.
+
+There's no separate login. The extension reuses your existing `app.adapt.com` session, and your conversations are the same chats you see in the web app and Slack. Start a thread in the browser, pick it up later in Slack, and it's all one history.
+
+Answers stream in live with full Markdown, syntax-highlighted code, and the agent's reasoning, exactly like the web app.
+
+## What it unlocks
+
+Having Adapt one click away on any page opens up quick, in-context workflows:
+
+- **Summarize anything on screen** — a long article, a dense PDF, a sprawling docs page, or a noisy email thread.
+- **Ask about the page** — ask follow-up questions and get answers grounded in the page you're viewing.
+- **Draft in place** — brainstorm a reply, outline a doc, or rough out copy based on the page in front of you.
+- **Research a prospect or company** — read their site or LinkedIn in the side panel while Adapt pulls from your connected tools and company knowledge.
+
+Because the extension shares the same agent as the web app, it can still reach your integrations, skills, and company knowledge — the page you're on just becomes one more piece of context.
+
+## v0.1 limitations
+
+The first release was intentionally focused on reading and reasoning over the page:
+
+- **Read-only.** In v0.1, Adapt could read the page and act in its own side panel, but it could not click, fill forms, or edit the page surface. [Browser actions are now available](/changelog/chrome-extension-browser-actions).
+- **Active tab only.** Adapt sees the tab you're currently viewing, not your other open tabs or background pages.
+- **Some pages can't be read.** Browser system pages (`chrome://`), the Chrome Web Store, and certain protected or non-HTML pages (some PDFs) are skipped. The extension handles these gracefully instead of erroring.
+- **Chrome (and Chromium browsers) for now.** A Firefox build exists but isn't published yet.
+
+## Get it
+
+[Add Adapt to Chrome](https://chromewebstore.google.com/detail/adapt/lpaboiblljakjkhbhadlabiggcfbbgam), pin it to your toolbar, and open the side panel on any page. It signs in automatically if you're already logged into Adapt.
+
+For current setup instructions and capabilities, see [Using the Chrome extension](/platform/chrome-extension).

@@ -1,0 +1,28 @@
+---
+title: "Multiple Connections Per Integration"
+description: "Connect more than one account for any OAuth or API key integration, and let Adapt route to the right one automatically."
+date: "2026-05-08"
+author:
+  name: Patrick Burris
+  github: Jumballaya
+---
+
+Your organization can now have more than one connection for the same integration provider — two GitHub orgs, three Slack workspaces, a prod and a staging Stripe — and Adapt knows how to use all of them.
+
+![GitHub integration page showing two connected accounts: adaptcom and Patrick's Github (Jumballaya)](https://adapt.com/docs/images/changelog/multiple-connections-per-integration.png)
+
+## What changed
+
+**Multiple connections per provider.** Both OAuth and API key integrations now support unlimited connections per organization. Give each one a name so you can tell them apart at a glance.
+
+**Adapt picks the right one.** Ask "what's open in our production repo" or "summarize issues in my personal GitHub" and Adapt routes to the matching connection. When the request is ambiguous, it can search across all of them or ask you which to use.
+
+**Smarter context for custom integrations.** When you connect a custom integration, its name and description now travel with the credentials — so Adapt makes much better choices when several keys could plausibly fit the task.
+
+**Integrations UX polish.** The per-provider detail page, custom integration flow, and catalog browsing all got a round of fixes and refinements, with more on the way.
+
+## Where to find it
+
+**Settings → Integrations → [provider]** in the web app. Use **Add** on any integration's detail page to connect another account.
+
+See the [Integrations overview](/integrations/overview) for setup details.

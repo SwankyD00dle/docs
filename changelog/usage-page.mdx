@@ -1,0 +1,35 @@
+---
+title: "See where your credits go"
+description: "A rebuilt usage page breaks credits down by day, chat, member, source, and intelligence level, and Adapt now emails you before the balance runs low."
+date: "2026-08-07"
+author:
+  name: Bruno Quaresma
+  github: BrunoQuaresma
+---
+
+Knowing your credit balance is useful. Knowing what consumed it is what actually lets you act. The usage page in **Settings** > **Usage** now answers both: a daily chart of what you spent, four ways to slice it, and warning emails before you hit the bottom.
+
+## Credits by day
+
+The top of the page shows total credits for the period, split into **LLM** (tokens models consume reading your prompts and writing responses) and **Compute** (resources that run your requests end to end). Below it, a stacked bar chart plots the same split day by day, so a spike is immediately visible and immediately dated.
+
+The date range defaults to the last 30 days and goes back up to 90.
+
+## Four ways to slice it
+
+**Group by** switches the breakdown table between four views. Each row carries an activity sparkline, chat count, credits, and share of the period's total.
+
+- **Chat** — every chat with its creator, source, last used time, and credits. Sort by **Top usage** to find the expensive ones or **Last used** to find the recent ones.
+- **User** — credits per person on the team.
+- **Source** — where the work came from: Web, Slack, GitHub, Linear, iMessage, MCP, Extension, or Automation. Scheduled tasks and webhooks both roll up as **Automation**, so all unattended work sits in one row.
+- **Intelligence Level** — credits by Super Fast, Fast, Balanced, and Deep, so you can see how much of the bill comes from the heaviest reasoning.
+
+Admins see the whole organization. Members see their own chats.
+
+## Know before you run out
+
+The credits card on the billing page now leads with what's left in plain terms: the percentage still available and the exact figure, as in "29% credits available — 8,790,438 of 30,002,500 credits". The bar turns amber past 75% used and red past 90%.
+
+Adapt emails owners and admins at those same two marks, once each per billing period, so a quiet month of automations doesn't become a surprise. Every email links straight to the usage page.
+
+[Usage-based pricing](/pricing/usage-based-pricing) · [Automations](/features/automations) · [Billing FAQ](/pricing/billing-faq)

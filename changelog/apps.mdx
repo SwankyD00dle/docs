@@ -1,0 +1,60 @@
+---
+title: "Apps"
+description: "Build and deploy custom dashboards and tools from any Adapt conversation."
+date: "2026-02-03"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Adapt can now build and host web applications. Describe what you need — a dashboard, a calculator, a data browser — and Adapt writes the code, configures the build, and gives you a live URL.
+
+## From conversation to running app
+
+The experience starts exactly like any other Adapt query:
+
+```
+Build a dashboard showing our monthly revenue trends,
+broken down by plan tier and acquisition channel.
+```
+
+Adapt writes the application code, installs dependencies, and packages it into a deployable artifact. Before saving, you'll see a preview and a summary of what was built:
+
+```
+✓ App created: Revenue Dashboard
+
+Build command: npm install && npm run build
+Entrypoint: npm start
+Port: 3000
+
+The app has been saved to your Apps library.
+Launch it anytime from the Apps page.
+```
+
+## What you can build
+
+Apps work best for anything interactive or visual that you'd want to reuse:
+
+**Dashboards** — Live views of your data. Connect to your integrations and surface the metrics your team actually cares about, without a BI tool.
+
+**Calculators** — Business logic tools like pricing estimators, capacity planners, or financial models.
+
+**Data explorers** — Browse, filter, search, and export from your connected data sources through a purpose-built interface.
+
+**Custom reports** — Formatted outputs designed for a specific audience — a board deck appendix, a customer-facing usage report, a weekly ops summary.
+
+## Managing your apps
+
+All apps are available from **Apps** in the sidebar. The library supports grid and list views, search, sorting, and favorites for the apps you use most.
+
+Each app runs in an isolated container. Click **Launch** to start it — it opens in a new browser tab. Apps may take a moment to initialize on first launch.
+
+## Security
+
+Apps run in sandboxed containers with no access to other parts of your environment. Only authenticated members of your organization can launch apps. App data is ephemeral — it resets between sessions rather than persisting in a shared store.
+
+## A note on iteration
+
+The app Adapt builds on the first pass is a starting point, not a final artifact. Describe what you want changed — new metrics, different layout, additional filters — and Adapt updates the app and saves a new version.
+
+See [Apps](/features/apps) in the docs for more detail.

@@ -1,0 +1,87 @@
+---
+title: "Scheduled Tasks"
+description: "Automate any Adapt query on a recurring schedule and deliver results to Slack or your inbox."
+date: "2026-02-03"
+author:
+  name: Sean Smith
+  github: scsmithr
+---
+
+Adapt can now run queries on your behalf, on a schedule you define, and deliver the results wherever you want them. If you find yourself asking the same question every Monday morning, you can now just stop doing that.
+
+## Setting up a scheduled task
+
+Describe the task in plain language — the same way you'd ask it manually:
+
+```
+Every Monday at 9am, summarize last week's closed deals
+and post a summary to #sales in Slack.
+```
+
+```
+Every morning at 8am, pull any new critical errors from Sentry
+and send me a Slack DM.
+```
+
+```
+On the first of every month, generate a revenue report
+and share it as a new chat.
+```
+
+Adapt parses the schedule, confirms the task, and starts running it automatically.
+
+## Schedule types
+
+**Recurring schedules** — Daily, weekly, monthly, or any custom cadence. Adapt supports natural language like "every weekday at 9am" as well as cron expressions for precise control.
+
+**One-time tasks** — Schedule something to run once at a specific future time:
+
+```
+In 3 hours, check if the deploy finished and summarize any new errors.
+```
+
+## Delivery options
+
+Choose where results land:
+
+- **Slack DM** — Direct message from the Adapt bot
+- **Slack channel** — Post to a specific channel (name the channel in your prompt)
+- **New chat** — Results appear as a new conversation in the Adapt web app
+
+## Managing your tasks
+
+Ask Adapt to show your current scheduled tasks:
+
+```
+What recurring tasks do I have running?
+```
+
+Cancel a task with a simple instruction:
+
+```
+Cancel the Monday sales summary.
+```
+
+Or update it:
+
+```
+Change the Monday sales summary to run at 8am instead of 9am.
+```
+
+## Real-world uses
+
+Scheduled tasks work well for anything that benefits from regular, automated attention:
+
+- **Engineering standups** — Summarize open PRs, blocked issues, and recent deploys every morning
+- **Pipeline reviews** — Weekly deals update delivered before your sales call
+- **Competitive monitoring** — Daily web search for news about competitors
+- **Customer health** — Weekly rollup of support tickets, usage drops, and churn signals
+- **Exec reporting** — Monthly summary assembled from finance, product, and sales data
+
+## Limits
+
+- Minimum interval between recurring executions: 15 minutes
+- One-time task window: 60 seconds to 7 days in the future
+- Tasks run with the same integration permissions as your account
+
+See [Scheduled Tasks](/features/automations) in the docs for the full reference.

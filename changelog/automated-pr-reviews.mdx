@@ -1,0 +1,37 @@
+---
+title: "Automated PR reviews"
+description: "Adapt now reviews your pull requests the moment they're ready, posting a confidence score, a summary, and inline comments straight to GitHub."
+date: "2026-06-25"
+author:
+  name: Patrick Burris
+  github: Jumballaya
+---
+
+Adapt now reviews your pull requests automatically. The moment a PR is opened (or a draft is marked ready for review), Adapt reads the diff and posts a full review back to GitHub — no @-mention required.
+
+Each review leads with a **confidence score** for how safe the change is to merge, a short **summary** of what the PR does, a table of the **important files changed**, and **inline comments** anchored to the exact lines that need attention. It's a real reviewer on every PR, available the instant the work is ready.
+
+
+![Adapt's automated PR review on GitHub showing a Confidence Score of 4/5, a Summary of the change, and an Important Files Changed table](https://adapt.com/docs/images/changelog/automated-pr-reviews-summary.png)
+
+## How it works
+
+When a PR is ready for review, Adapt reacts with 👀, clones the repo into its sandbox, checks out the PR head, and diffs it against the base branch. It then posts a GitHub review with:
+
+- **Confidence Score (0–5)** — how safe the change is to merge at a glance.
+- **Summary** — a short paragraph on what the PR does and why it's correct (or not).
+- **Important Files Changed** — a per-file overview of what changed and any concerns.
+- **Inline findings** — actionable comments anchored to specific files and lines in the diff.
+
+Adapt skips draft PRs until they're marked ready, and it never reviews bot-authored PRs (including its own), so there are no review loops.
+
+
+![Adapt posting inline review comments anchored to specific lines in the PR diff, flagging an unremoved event listener and an ungated pointerdown handler](https://adapt.com/docs/images/changelog/automated-pr-reviews-inline.png)
+
+## Ask follow-ups in the thread
+
+The review is a conversation, not a one-shot. @-mention Adapt in a PR comment or reply inside one of its inline review threads, and it picks the discussion back up with full context on the PR — answering questions, digging into a finding, or reconsidering a call.
+
+## Getting started
+
+Automated reviews run through the [GitHub integration](/integrations/github). Connect or reconnect GitHub so Adapt picks up pull request events and can map PRs to your team, then open a PR to see the first review land.

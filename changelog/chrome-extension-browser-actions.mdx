@@ -1,0 +1,33 @@
+---
+title: "Take browser actions from the Chrome extension"
+description: "Adapt can now reread supported pages, fill fields, and click controls in the browser tab you're using."
+date: "2026-07-24"
+author:
+  name: Bruno Quaresma
+---
+
+The Adapt Chrome extension can now do more than read the page. Ask Adapt to complete a browser task, and it can inspect the current page, fill fields, and click controls in the tab you're using.
+
+![Adapt asks for permission before clicking the Google Search button in the Chrome extension](https://adapt.com/docs/images/changelog/chrome-extension-browser-actions-confirmation.png)
+
+## How browser actions work
+
+Start from the Adapt side panel and describe the outcome you want. For example:
+
+- “Search for Recife and open the first result.”
+- “Fill this form with the company details from HubSpot.”
+- “Open the pricing page and summarize the enterprise plan.”
+
+Adapt can reread the page's current state after an action before choosing the next step. It can also inspect a specific form, table, or page section when the readable page view does not include enough detail.
+
+## You stay in control
+
+Reading a page and filling fields run automatically. Filling applies supported field values and dispatches the page's normal input and change events. Adapt does not itself submit the form, but the page may autosave or react to those changes.
+
+By default, clicks pause for your approval. The confirmation card shows the proposed action and lets you **Deny**, **Allow once**, or **Always allow** future clicks on that same site origin in your current browser profile.
+
+![Adapt confirms that it opened the first search result and reached the Recife Wikipedia page](https://adapt.com/docs/images/changelog/chrome-extension-browser-actions-result.png)
+
+Browser actions are tied to the tab that was active when you sent the request. Keep that tab and the extension side panel open while Adapt works.
+
+See [Using the Chrome extension](/platform/chrome-extension) for setup, supported actions, approval details, and current limitations.

@@ -1,0 +1,47 @@
+---
+title: "Send automation results to your email or phone"
+description: "Every automation now picks where its result lands — the channel it was created in, your email, your Messages thread, or nowhere at all."
+date: "2026-08-05"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+Automations used to answer wherever they were created. If you set one up in a Slack thread, that's where the result went — even when the thing you actually wanted was a text at 8am or an email waiting in your inbox.
+
+Now every automation carries a **result delivery** setting. Pick the channel it was created in, your email, your Messages thread, or no notification at all. The setting sits in the header of the automation, and you can change it in plain English from any chat.
+
+![Automation page header with Enabled, a result-delivery selector set to Messages, and visibility controls](https://adapt.com/docs/images/changelog/automation-delivery-destinations.png)
+
+## Your options
+
+| Destination | Where the result lands |
+|-------------|------------------------|
+| **Original channel** | Wherever the automation was created — a Slack thread, a channel, or a new chat in the web app. The default. |
+| **Email** | An email to your verified account address. The automation's name becomes the subject, with a button that opens the full run. |
+| **Messages** | A text in your Adapt [Messages](/platform/messaging) thread — iMessage on iPhone, RCS on Android. |
+| **No notification** | Nothing is sent. The run still happens and stays on the automation's run history. |
+
+Email and Messages deliver to the person who created the automation. Both need to be set up first: Email needs a verified account email, and Messages needs a connected phone plus an existing text thread with Adapt. The selector shows each one's status — a masked phone number when Messages is ready, "Not connected" when it isn't — and won't let you pick a destination that can't receive.
+
+## Setting it
+
+Open **Automations**, click any automation, and use the delivery selector in the header next to the status control. Only the automation's creator and org owners and admins can change it.
+
+Or just say it:
+
+```
+Text me the results of my morning PR digest instead of posting here.
+```
+
+```
+Email me the Monday sales summary.
+```
+
+```
+Stop notifying me when the hourly inbox sweep runs.
+```
+
+Adapt checks which destinations you have available before it switches, and tells you if the one you asked for isn't connected yet.
+
+[Automations](/features/automations) · [Message Adapt](/platform/messaging)

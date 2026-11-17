@@ -1,0 +1,53 @@
+---
+title: "Slack huddle transcripts"
+description: "Adapt posts a full transcript when a huddle ends, then answers questions about what was said."
+date: "2026-08-03"
+author:
+  name: Casey Manos
+  github: caseymanos
+---
+
+Huddles used to disappear the moment they ended. Now, when a huddle wraps in a channel Adapt is in, Adapt posts the full transcript into the huddle thread and keeps a searchable copy — so "what did we decide in that huddle yesterday?" has an answer.
+
+## How it works
+
+When Slack finishes its huddle notes, Adapt grabs the verbatim transcript and posts it back into the huddle thread as `huddle-transcript.md`. Each turn is timestamped and attributed to a speaker, consecutive lines from the same person are merged, and a short header carries the date and participant list.
+
+```
+Huddle transcript
+Jul 27, 2026
+Participants: Casey Manos, Ryan Miyahara
+
+[0:04] Casey Manos: Let's start with the billing page numbers.
+[0:21] Ryan Miyahara: The effective balance and the ledger disagree...
+```
+
+Nothing to configure. Invite Adapt to the channel and huddles held there get a transcript.
+
+## Ask about a huddle
+
+Transcripts are searchable from Slack or the web app:
+
+```
+@Adapt what did we decide about pricing in yesterday's huddle?
+```
+
+Adapt filters huddles by keyword, channel, and date, and centers the excerpt on the match instead of returning the top of the recording. Broad recap questions — "what happened today?" — pull huddles in automatically alongside your other connected sources.
+
+## Who can see what
+
+Access is checked live against your Slack identity every time you ask, including guest accounts and Slack Connect channels. Adapt only returns huddles from channels you can already see in Slack — being in the same workspace isn't enough.
+
+Delete the transcript file in Slack and Adapt drops its stored copy too.
+
+## Turning it off
+
+Ask Adapt in Slack:
+
+```
+@Adapt stop posting huddle transcripts
+```
+
+This is workspace-wide, not per channel. Re-enable it the same way.
+
+[Learn more about huddle transcripts →](/platform/slack-app#huddle-transcripts)

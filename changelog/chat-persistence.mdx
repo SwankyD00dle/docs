@@ -1,0 +1,19 @@
+---
+title: "Chat persistence"
+description: "Adapt now caches your unsent text and keeps it available between chats and across reloads, so nothing you've typed disappears."
+date: "2026-07-08"
+author:
+  name: Ryan Miyahara
+  github: SwankyD00dle
+---
+
+Start a message, get pulled away, and come back later — your text is still there. Adapt now caches whatever you've typed in the composer and keeps it available between chats and across reloads, so a half-finished thought no longer disappears when you refresh the page, close the tab, or switch to another conversation.
+
+## How it works
+
+- **Per conversation** — Each chat keeps its own cached text, and the new-chat composer keeps its own too. Switch between chats and each one restores exactly what you left in it.
+- **Persists across reloads** — Your unsent text survives a page refresh or reopening the tab, so you can pick up right where you left off.
+- **Cached automatically** — There's nothing to enable. As you type, Adapt caches your text in the background and brings it back the next time you open that conversation.
+- **Cleared on send** — Once you send the message, its cached text is dropped so it can't reappear later.
+
+Unsent text is stored locally in your browser, so it stays private to you and to the device you're working on.

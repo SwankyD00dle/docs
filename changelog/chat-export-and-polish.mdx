@@ -1,0 +1,46 @@
+---
+title: "Export chats as Markdown, plus chat polish"
+description: "Copy or download any chat as Markdown from the sidebar or the title bar, plus refreshed status dots, multi-author display, and a calmer composer."
+date: "2026-05-22"
+author:
+  name: Casey Manos
+---
+
+You can now export any chat as Markdown straight from the chat menu — either copied to your clipboard or downloaded as a file. The export includes every message, attachment, tool call, tool result, timestamp, and filename, so the result is a faithful, readable copy of the conversation you can paste into a doc, share in a ticket, or archive.
+
+Alongside the export, this release polishes a handful of things around the chat surface.
+
+## Export a chat
+
+Open the chat menu — either the three dots next to a chat in the sidebar, or the same menu in the title bar — and pick:
+
+- **Copy all messages** to put the full conversation on your clipboard as Markdown.
+- **Download as Markdown** to save it as a `.md` file.
+
+Both actions produce the same content: each message labeled with author and timestamp, attachments listed inline, and tool calls and their results preserved as fenced code blocks. Nothing is summarized — the export is the conversation, just in Markdown.
+
+## Same menu in the sidebar and the title bar
+
+The chat menu is now identical wherever you open it. Pin, rename, copy as Markdown, download as Markdown, and delete all live in one place and behave the same way from the sidebar item and the title bar dropdown.
+
+Sharing still lives as its own button in the title bar so it stays one click away when you're inside a chat.
+
+## Sidebar status dots
+
+The sidebar now shows two synchronized status dots so you can tell at a glance what each chat is doing:
+
+- **Running**: a pulsing dot on chats that have work in flight. Every running dot pulses in sync across the sidebar.
+- **Finished but unviewed**: a solid dot on chats that finished running while you were looking somewhere else. It clears the next time you open the chat.
+
+This is most useful when you have several agents or scheduled tasks working in the background — you can leave the sidebar open and see when a chat is ready for you without watching it.
+
+## Author identity on shared chats
+
+Any chat with more than one person now always shows who sent each message. Names stay visible even when one author sends several messages in a row, so it's clear who said what in shared and proactive chats without having to hover or scroll.
+
+## Calmer composer
+
+Two small composer fixes:
+
+- When you open a new chat, focus lands on the composer right away, so you can start typing without clicking.
+- The blinking caret stays hidden until you actually start typing, and the composer gets a subtle gradient blur at the edges. The empty state feels quieter and the typing experience feels the same as before.

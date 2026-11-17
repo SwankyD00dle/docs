@@ -1,0 +1,27 @@
+---
+title: "Native tables in Slack replies"
+description: "Adapt now formats multi-record answers in Slack as real tables instead of dash-bullet prose."
+date: "2026-07-28"
+author:
+  name: Ryan Miyahara
+  github: SwankyD00dle
+---
+
+Adapt now writes a native table when a Slack answer reports several records that share the same fields. Metric grids, before-and-after values, per-item rows, and comparisons render as a real Slack table instead of a wall of dash bullets.
+
+![Adapt replying in Slack with a native table comparing the oldest and newest OpenAI and Anthropic models in production, with columns for provider, model, model id, first seen, last seen, and context window](https://adapt.com/docs/images/changelog/slack-tables.png)
+
+## What changed
+
+Slack answers previously drifted into prose or bullet lists whenever the data was tabular, which made side-by-side comparisons hard to scan. Adapt now follows one formatting contract across every Slack surface:
+
+- **Three or more records with the same fields** become a table.
+- **One table per message.** Slack rejects messages with more than one, so Adapt tables the most important set and summarizes the rest as bullets.
+- **Same behavior everywhere** — `@Adapt` mentions, direct messages, automations posting to a channel, and agent-posted messages all use the same rules.
+
+Nothing to turn on. Ask a question with a tabular answer and you get a table.
+
+## Related
+
+- [Slack app](/platform/slack-app)
+- [Automations](/features/automations)
