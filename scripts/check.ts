@@ -110,30 +110,7 @@ type Operation = {
 }
 type Spec = { paths: Record<string, Record<string, Operation>> }
 
-const spec = toJsonSchema((await (await fetch(OPENAPI_URL)).json()) as Spec)
-
-/** The spec says 3.1 but still writes some schemas the 3.0 way; rewrite those so a 2020-12 validator reads them. */
-function toJsonSchema<T>(node: T): T {
-  if (Array.isArray(node)) return node.map(toJsonSchema) as T
-  if (!node || typeof node !== 'object') return node
-  const out = Object.fromEntries(Object.entries(node).map(([k, v]) => [k, toJsonSchema(v)]))
-  if (out.exclusiveMinimum === true) {
-    out.exclusiveMinimum = out.minimum
-    delete out.minimum
-  }
-  if (out.exclusiveMaximum === true) {
-    out.exclusiveMaximum = out.maximum
-    delete out.maximum
-  }
-  // A regex serialized with its flags (`^…$/i`): carry them as an inline modifier group.
-  const flagged = typeof out.pattern === 'string' && out.pattern.match(/^\^(.*)\$\/([ims]+)$/)
-  if (flagged) out.pattern = `^(?${flagged[2]}:${flagged[1]})$`
-  if (out.nullable === true) {
-    if (typeof out.type === 'string') out.type = [out.type, 'null']
-    delete out.nullable
-  }
-  return out as T
-}
+const spec = (await (await fetch(OPENAPI_URL)).json()) as Spec
 const addFormats = addFormatsModule as unknown as (ajv: Ajv2020) => void
 const ajv = new Ajv2020({ strict: false, allErrors: true, coerceTypes: true })
 addFormats(ajv)
