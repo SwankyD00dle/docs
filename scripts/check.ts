@@ -1,6 +1,6 @@
 // Checks every docs section (a folder with a docs.json): its manifest, its pages, its links,
 // and that each API example is a request the live API accepts.
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { Ajv2020 } from 'ajv/dist/2020.js'
 import addFormatsModule from 'ajv-formats'
@@ -13,9 +13,9 @@ type Page = { section: string; slug: string; file: string; text: string }
 const errors: string[] = []
 const fail = (where: string, message: string) => errors.push(`${where}: ${message}`)
 
-const sections = readdirSync('.').filter(
-  (dir) => statSync(dir).isDirectory() && existsSync(join(dir, 'docs.json'))
-)
+const sections = readdirSync('.', { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && existsSync(join(entry.name, 'docs.json')))
+  .map((entry) => entry.name)
 const pages: Page[] = []
 
 for (const section of sections) {
