@@ -40,6 +40,20 @@ curl --fail-with-body -sS -X POST "$PLATFORM_URL/v1/sandboxes" \
 These are API limits, allocation also depends on available capacity. To change
 an existing sandbox's configuration, create a replacement.
 
+## Capacity and migration
+
+Creation can return `status: "queued"` while waiting for compute capacity. The
+platform retries placement automatically. The queue deadline is 30 minutes, and
+the sandbox's lifetime continues while queued.
+
+The platform can move a running sandbox to another host during maintenance or
+when its host is under memory pressure. Its status becomes `migrating`; the
+sandbox pauses while its memory and disks transfer. Its ID stays the same.
+Commands and files remain in the guest, but network and interactive connections
+may disconnect and need to reconnect. New commands, file operations and stop or
+delete requests are unavailable during the handoff. Wait for `running` before
+resuming work. Migration time depends on the sandbox's size and transfer speed.
+
 ## Images and networking
 
 Omitting both `image` and `imageId` uses `ubuntu:24.04`. Set `image` to pull a
