@@ -109,3 +109,13 @@ Applications with `billing:read` can read `/v1/billing/overview`,
 purchase requires `billing:write` and a UUID `Idempotency-Key`. Reuse the original
 key and inputs after an uncertain response; a changed amount needs a new explicit
 purchase after the previous request is resolved.
+
+The overview includes separate `observations.metering`,
+`observations.paymentMethod`, and `observations.payments` freshness and observation
+times. A failed payment-history refresh can leave fresh card and statement data.
+Check each observation before treating a null card or empty list as confirmed.
+Payment history is synchronized in bounded steps: `observations.payments.complete`
+is false until the first full scan finishes, and `syncing` indicates another scan
+is underway. Do not describe partial rows as complete history. The payment
+observation time is the start of the last completed scan; older records can change
+later after refunds or disputes.
