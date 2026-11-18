@@ -97,7 +97,11 @@ observation time describes when billing information was retrieved; provider
 updates can arrive later. Stale information retains the last observation and says
 that an update could not be confirmed.
 
-Payments show settlement outcomes, refunded amounts, and dispute flags. Statement
+**History** combines credit purchases, payment-method setup, and payments. A verified
+purchase/payment relationship produces one row. Payments without a verified
+relationship remain separate events. Purchase fulfillment and payment settlement
+are distinct: a paid purchase awaiting credits remains pending, and a completed
+purchase can later show a refund or dispute. Statement
 and invoice state describes the document: finalization does not prove payment.
 Available receipt and document links open the provider's document. **Download**
 retrieves a statement PDF through the organization API when no hosted link is
@@ -105,13 +109,13 @@ available. A completed
 purchase can appear before an updated balance or statement.
 
 Applications with `billing:read` can read `/v1/billing/overview`,
-`/v1/billing/history?offset=0`, and `/v1/billing/operations/{id}`. Starting setup or a
+`/v1/billing/history`, and `/v1/billing/operations/{id}`. Starting setup or a
 purchase requires `billing:write` and a UUID `Idempotency-Key`. Reuse the original
 key and inputs after an uncertain response; a changed amount needs a new explicit
 purchase after the previous request is resolved.
 
 The overview includes separate `observations.metering`,
-`observations.paymentMethod`, and `observations.payments` freshness and observation
+`observations.paymentMethod`, `observations.payments`, and `observations.linkage` freshness and observation
 times. A failed payment-history refresh can leave fresh card and statement data.
 Check each observation before treating a null card or empty list as confirmed.
 Payment history is synchronized in bounded steps: `observations.payments.complete`
@@ -119,3 +123,12 @@ is false until the first full scan finishes, and `syncing` indicates another sca
 is underway. Do not describe partial rows as complete history. The payment
 observation time is the start of the last completed scan; older records can change
 later after refunds or disputes.
+
+History returns normalized `events`, an `observation`, a `revision`, and `nextCursor`.
+Pass `nextCursor` as the next request’s `cursor` query parameter. Pagination covers
+the unified organization history; do not combine pages from different revisions.
+A changed revision returns HTTP 409: restart from the first page. The history
+observation combines payment and verified-linkage scan freshness and completeness.
+Pending or incomplete observations cannot establish that no further events exist.
+Setup action links require `billing:write`, even when reading history. Provider
+customer and payment identifiers remain internal.
