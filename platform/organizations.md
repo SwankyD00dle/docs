@@ -108,7 +108,7 @@ retrieves a statement PDF through the organization API when no hosted link is
 available. A completed
 purchase can appear before an updated balance or statement.
 
-Applications with `billing:read` can read `/v1/billing/overview`,
+Applications with `billing:read` can read `/v1/billing`,
 `/v1/billing/history`, and `/v1/billing/operations/{id}`. Starting setup or a
 purchase requires `billing:write` and a UUID `Idempotency-Key`. Reuse the original
 key and inputs after an uncertain response; a changed amount needs a new explicit
